@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 인터페이스, 메소드 이름을 적어야됨 -->
+<mapper namespace="com.gd.hr.mapper.RegionMapper">
+	<!-- 오타 걱정되면 ctrl누른상태에서 마우스 위로 누르면 됨. -->
+	<!-- resultType에 한 행 한 행 넣음 -->
+	<select id="selectRegionList" resultType="com.gd.hr.vo.Region">
+		SELECT
+			region_id regionId,
+			region_name regionName
+		FROM regions
+		ORDER BY region_id
+	</select>
+	
+	
+	<insert id="insertRegion" parameterType="com.gd.hr.vo.Region">
+		INSERT INTO regions (
+			region_id,
+			region_name
+		)VALUES(
+			#{regionId},
+			#{regionName}
+		)
+	</insert>
+	
+	
+	<delete id="deleteRegion" parameterType="int">
+		<!-- 값을 하나받아오기때문에 아무거나 적으면 된다. -->
+		DELETE FROM regions
+		WHERE region_id = #{regionId}
+	</delete>
+ 	
+ 	
+ 	<!-- updateRegion -->
+	<update id="updateRegion" parameterType="com.gd.hr.vo.Region">
+		UPDATE regions
+		SET region_name = #{regionName} <!-- getRegionName() -->
+		WHERE region_id = #{regionId}
+	</update>
+ 
+ 
+ 	<!-- updateRegionForm -->
+	<select id="selectRegionOne" parameterType="int" resultType="com.gd.hr.vo.Region">
+		SELECT
+			region_id regionId,
+			region_name regionName
+		FROM regions
+		WHERE region_id = #{regionId}
+	</select>
+	
+</mapper>
