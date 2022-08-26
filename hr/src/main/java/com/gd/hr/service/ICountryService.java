@@ -19,6 +19,8 @@ public interface ICountryService {
 	int modifyCountry(Country country);
 	
 	Country getCountryOne(String countryId);
+
+	List<Country> getCountryIdAndNameList(int regionId);
 	
 }
 

@@ -13,6 +13,8 @@
 	</select>
 	
 	
+	
+	
 	<insert id="insertRegion" parameterType="com.gd.hr.vo.Region">
 		INSERT INTO regions (
 			region_id,

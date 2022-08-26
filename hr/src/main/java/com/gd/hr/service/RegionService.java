@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.gd.hr.mapper.CountryMapper;
 import com.gd.hr.mapper.RegionMapper;
 import com.gd.hr.vo.Region;
 
@@ -15,6 +16,7 @@ public class RegionService implements IRegionService {
 	//DI : 객체를 직접 생성하지 않고 스프링 프레임워크를 통해(bean객체) 주입
 	//Interface 타입을 사용
 	@Autowired RegionMapper regionMapper;
+	@Autowired CountryMapper countryMapper;
 	
 	@Override
 	public List<Region> getRegionList() {
@@ -29,10 +31,12 @@ public class RegionService implements IRegionService {
 	}
 
 	@Override
-	public int removeRegion(int regionId) {
-		System.out.println("RegionService.jsp removeRegion");
-		System.out.println(regionId + " <-- regionId");
-		return regionMapper.deleteRegion(regionId);
+	public int removeRegion(int regionId)  {
+		countryMapper.deleteCountryByRegionId(regionId);
+		int row = regionMapper.deleteRegion(regionId);
+
+		return row;
+		
 	}
 
 	@Override
@@ -45,6 +49,10 @@ public class RegionService implements IRegionService {
 		return regionMapper.selectRegionOne(regionId);
 	}
 
+	
+class MybatisException extends RuntimeException {
+	
+}
 	
 	
 }

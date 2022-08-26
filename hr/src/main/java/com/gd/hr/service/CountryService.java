@@ -36,9 +36,9 @@ public class CountryService implements ICountryService {
 	}
 
 	@Override
-	public int removeCountry(String CountryId) {
+	public int removeCountry(String countryId) {
 		// TODO Auto-generated method stub
-		return countryMapper.deleteCountry(CountryId);
+		return countryMapper.deleteCountry(countryId);
 	}
 
 	@Override
@@ -53,7 +53,16 @@ public class CountryService implements ICountryService {
 		return countryMapper.selectCountryOne(countryId);
 	}
 
+	@Override
+	public List<Country> getCountryIdAndNameList(int regionId) {
+		System.out.println("CountryServcie "+regionId);
+		List<Country> list = countryMapper.selectCountryIdAndNameList(regionId);
+		return list;
+	}
+	
+}
 
 	
+	
 
-}
+

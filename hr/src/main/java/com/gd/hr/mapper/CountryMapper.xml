@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gd.hr.mapper.CountryMapper">
+	
+	<select id="selectCountryIdAndNameList" parameterType="int" resultType="com.gd.hr.vo.Country">
+		SELECT 
+			country_id 	countryId,
+			country_name countryName
+		FROM countries
+		WHERE region_id = #{region_id}
+	</select>
+	
+	
+	
 	<insert id="insertCountry" parameterType="com.gd.hr.vo.Country">
 		INSERT INTO countries(
 			country_id,
@@ -25,10 +36,9 @@
 		ON c.region_id = r.region_id
 	</select>
 	
-	<delete id="deleteCountry" parameterType="String">
-		
+	<delete id="deleteCountry" parameterType="int">
 		DELETE FROM countries
-		WHERE country_id = #{countryId}
+		WHERE region_id = #{regionId}
 	</delete>
 	
 	<!-- updateRegion -->
