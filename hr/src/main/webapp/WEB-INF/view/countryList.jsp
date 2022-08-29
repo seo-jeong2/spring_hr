@@ -30,7 +30,7 @@
             <td>${c.REGIONID}</td>
             <td>${c.COUNTRYID}</td>
             <td>${c.COUNTRYNAME}</td>
-            <td><a href="${pageContext.request.contextPath}/modifyCountry?countryId=${c.COUNTRYID}&countryName=${c.COUNTRYNAME}">수정</a></td>
+            <td><a href="${pageContext.request.contextPath}/modifyCountry?regionId=${c.REGIONID}&countryId=${c.COUNTRYID}&countryName=${c.COUNTRYNAME}">수정</a></td>
             <td><a href="${pageContext.request.contextPath}/removeCountry?countryId=${c.COUNTRYID}">삭제</a></td>
          </tr>
       </c:forEach>

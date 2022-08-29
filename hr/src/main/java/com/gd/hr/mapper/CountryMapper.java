@@ -19,7 +19,7 @@ public interface CountryMapper {
 	
 	List<Map<String,Object>> selectCountryList();
 	
-	int deleteCountryByRegionId (int regionid);
+	int deleteCountryByRegionId (int regionId);
 	
 	int deleteCountry(String countryId);
 	

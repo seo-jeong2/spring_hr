@@ -15,6 +15,11 @@
 	
 	<form method="post" action="${pageContext.request.contextPath}/modifyCountry">
 		<div>
+			regionId : 
+			<input type="text" name="regionId" value="${regionId}">
+		</div>
+		
+		<div>
 			countryId : 
 			<input type="text" name="countryId" value="${countryId}">
 		</div>

@@ -32,6 +32,12 @@ public class LocationService implements ILocationService {
 		resultMap.put("regionList" , regionList);
 		return resultMap;
 	}
+
+	@Override
+	public List<Map<String, Object>> locationList() {
+		// TODO Auto-generated method stub
+		return locationMapper.selectLocationList();
+	}
 	
 	
 

@@ -21,6 +21,16 @@
 	)
 
 	</insert>
+	
+	<select id="selectLocationList" resultType="map">
+		SELECT 
+			c.country_id 	countryId,
+			c.country_name 	countryName,
+			r.region_id		regionId,
+			r.region_name	regionName
+		FROM countries c INNER JOIN regions r
+		ON c.region_id = r.region_id
+	</select>
 
 
 

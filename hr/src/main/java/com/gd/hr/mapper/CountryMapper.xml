@@ -36,9 +36,9 @@
 		ON c.region_id = r.region_id
 	</select>
 	
-	<delete id="deleteCountry" parameterType="int">
+	<delete id="deleteCountry" parameterType="String">
 		DELETE FROM countries
-		WHERE region_id = #{regionId}
+		WHERE country_id = #{countryId}
 	</delete>
 	
 	<!-- updateRegion -->
@@ -46,6 +46,7 @@
 		UPDATE countries
 		SET country_name = #{countryName} <!-- getcountryName() -->
 		WHERE region_id = #{regionId}
+		AND country_id = #{countryId}
 	</update>
 	
 	
@@ -53,7 +54,8 @@
 	<select id="selectCountryOne" parameterType="String" resultType="com.gd.hr.vo.Country">
 		SELECT
 			country_id countryId,
-			country_name countryName
+			country_name countryName,
+			region_id regionId
 		FROM countries
 		WHERE country_id = #{countryId}
 	</select>
